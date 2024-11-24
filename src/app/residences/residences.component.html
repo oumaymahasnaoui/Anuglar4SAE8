@@ -1,0 +1,13 @@
+<div *ngFor="let residence of listResidences | filter: searchQuery">
+    <h3>{{ residence.name }}</h3>
+    <img [src]="residence.image" alt="{{ residence.name }}" style="width: 200px; height: auto;" />
+    <p *ngIf="residence.status === 'Disponible'">🟢 Disponible</p>
+    <p *ngIf="residence.status === 'En Construction'">🔨 En Construction</p>
+    <p *ngIf="residence.status === 'Vendu'">🔴 Vendu</p>
+    <div>
+        <button (click)="showLocation(residence)">Show Location</button>
+        <span *ngIf="visiblity && residence.adresse">{{residence.adresse}}</span>
+    </div>
+    <button (click)="addToFavorites(residence)">Like</button>
+    <input type="text" [(ngModel)]="searchQuery" placeholder="Rechercher par adresse" />
+</div>

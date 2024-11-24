@@ -1,0 +1,6 @@
+<div *ngFor="let residence of listResidences">
+  <h3>{{ residence.name }}</h3>
+  <p>Status: {{ residence.status }}</p>
+  <button [routerLink]="['/residences', residence.id]">Details</button>
+  <button [routerLink]="['/apartments', residence.id]">Apartments List</button>
+</div>
